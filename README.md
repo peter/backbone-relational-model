@@ -1,4 +1,4 @@
-# Backbone RelationalModel
+# Backbone Relational Model
 
 ## Introduction
 
@@ -40,6 +40,7 @@ window.Blog = RelationalModel.extend({
     posts: [Backbone.Collection, {model: Post, silent: true}]
   }
 });
+```
 
 If model/collection classes needed in the associations hash are not loaded yet you can wrap the declaration in
 a function:
