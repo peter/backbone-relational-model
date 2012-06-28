@@ -6,21 +6,19 @@
 //   urlRoot: '/blogs',
 //   idAttribute: "blog_id",
 //   associations: {
-//     posts: Posts
+//     categories: Categories
 //   }
 // });
 // 
-// window.Posts = Backbone.Collection.extend({
-//   url: '/posts',
-//   model: Post
+// window.Categories = Backbone.Collection.extend({
+//   url: '/categories',
+//   model: Category
 // });
 // 
 // blog = new Blog({name: "My Story"});
-// post = new Post({title: "Hello world!"});
-// post.save({}, {success: function() {
-//   blog.get("posts").add(post);
-//   blog.save();  
-// }});
+// catgory = new Category({id: 1});
+// blog.get("categories").add(category);
+// blog.save();  
 //
 // In the associations hash you specify the collection class and you can also provide an options hash with the
 // attributes silent (to not trigger change events on association changes) and model (for the model class to 
@@ -30,7 +28,7 @@
 //   urlRoot: '/blogs',
 //   idAttribute: "blog_id",
 //   associations: {
-//     posts: [Backbone.Collection, {model: Post, silent: true}]
+//     categories: [Backbone.Collection, {model: Category, silent: true}]
 //   }
 // });
 //
@@ -42,7 +40,7 @@
 //   idAttribute: "blog_id",
 //   associations: function() {
 //     return {
-//       posts: [Backbone.Collection, {model: Post, silent: true}]
+//       categories: [Backbone.Collection, {model: Category, silent: true}]
 //     };
 //   }
 // });
@@ -85,9 +83,9 @@ window.RelationalModel = Backbone.Model.extend({
       options = {},
       modelType;
     if (_.isFunction(association)) {
-      collectionType = association; // posts: Posts
+      collectionType = association; // categories: Categories
     } else {
-      collectionType = association[0]; // posts: [Posts, {model: Post, silent: true}]
+      collectionType = association[0]; // categories: [Categories, {model: Category, silent: true}]
       options = association[1];
     }
     items || (items = []);
